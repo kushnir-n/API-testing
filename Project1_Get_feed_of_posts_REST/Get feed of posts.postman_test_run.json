@@ -1,0 +1,642 @@
+{
+	"id": "b8bc404b-2d3a-4eb6-9367-791da26213e3",
+	"name": "Get feed of posts",
+	"timestamp": "2023-03-25T12:08:25.305Z",
+	"collection_id": "24701209-6dc7cceb-0312-43bd-88f8-5ecd8386bf2d",
+	"folder_id": 0,
+	"environment_id": "24701209-2566ce45-6dcf-4250-8c55-c989143ee5c0",
+	"totalPass": 18,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-03-25T12:08:18.267Z",
+	"totalFail": 2,
+	"results": [
+		{
+			"id": "7d9d9560-4a62-49f6-abc7-0b26873ad11b",
+			"name": "#0_auth user",
+			"url": "https://test-stand.gb.ru/gateway/login",
+			"time": 904,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				904
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "c03a5f52-93f4-479e-981f-2d3377ac4ca3",
+			"name": "#1_get feed of  user posts without query",
+			"url": "https://test-stand.gb.ru/api/posts",
+			"time": 286,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				286
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "4f331be8-70a7-45b3-ba86-bcf5834b1820",
+			"name": "#2_get feed of user posts with createdAt (page 1)",
+			"url": "https://test-stand.gb.ru/api/posts?sort=createdAt&page=1",
+			"time": 307,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				307
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e76fcbc1-c388-4246-a612-a7a2034a2302",
+			"name": "#3_get feed of user posts with createdAt (page 2)",
+			"url": "https://test-stand.gb.ru/api/posts?page=2&sort=createdAt",
+			"time": 223,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				223
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "aaf4119f-d1e3-40b5-91b4-036074ad0fc7",
+			"name": "#4_get feed of user posts with ASC (page 1)",
+			"url": "https://test-stand.gb.ru/api/posts?sort=createdAt&order=ASC&page=1",
+			"time": 309,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				309
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "113be587-630e-4fe1-9b4a-67aa0d53b0bd",
+			"name": "#5_get feed of user posts with DESC (page 1)",
+			"url": "https://test-stand.gb.ru/api/posts?sort=createdAt&order=DESC&page=1",
+			"time": 251,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				251
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "d83aa0cd-41bb-42be-a06d-ad2bb2f7e380",
+			"name": "#6_get feed of user posts with ASC (page 2)",
+			"url": "https://test-stand.gb.ru/api/posts?sort=createdAt&order=ASC&page=2",
+			"time": 231,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				231
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "c9109c84-500b-4d79-a108-78ebdb077d4d",
+			"name": "#7_get feed of user posts with DESC (page 2)",
+			"url": "https://test-stand.gb.ru/api/posts?sort=createdAt&order=DESC&page=2",
+			"time": 281,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				281
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "dfbd1385-f07d-4839-98f5-19738c6a8331",
+			"name": "#8_get feed of user posts page 10",
+			"url": "https://test-stand.gb.ru/api/posts?sort=createdAt&order=DESC&page=10",
+			"time": 225,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				225
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "1f8cf268-e47e-452f-99f8-7e9e4bf4fc54",
+			"name": "#9_get feed of not user posts (not me)",
+			"url": "https://test-stand.gb.ru/api/posts?owner=notMe",
+			"time": 321,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				321
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "ce86ba40-2866-4644-badf-56d1fb757fd7",
+			"name": "#10_get feed of not user posts with createdAt (page 1)",
+			"url": "https://test-stand.gb.ru/api/posts?owner=notMe&sort=createdAt&page=1",
+			"time": 328,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				328
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "42760fbd-65a4-4d1f-867b-9271d96a4267",
+			"name": "#11_get feed of not user posts with createdAt (page 2)",
+			"url": "https://test-stand.gb.ru/api/posts?owner=notMe&sort=createdAt&page=2",
+			"time": 360,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				360
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "d9d447a6-fc63-4098-a0e3-b52ade707832",
+			"name": "#12_get feed of not user posts with ASC (page 1)",
+			"url": "https://test-stand.gb.ru/api/posts?owner=notMe&sort=createdAt&page=1&order=ASC",
+			"time": 302,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				302
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "f60e2e12-604b-4965-a80f-1bdeecadc2e0",
+			"name": "#13_get feed of not user posts with DESC (page 1)",
+			"url": "https://test-stand.gb.ru/api/posts?owner=notMe&sort=createdAt&page=1&order=DESC",
+			"time": 255,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				255
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e4c74f47-0ae3-42b7-aabc-40a14637d619",
+			"name": "#14_get feed of not user posts with ALL (page 1)",
+			"url": "https://test-stand.gb.ru/api/posts?owner=notMe&sort=createdAt&page=1&order=ALL",
+			"time": 171,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				171
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "5ad43376-548d-4f97-9720-e680cb05eb5b",
+			"name": "#15_get feed of not user posts (page 1000)",
+			"url": "https://test-stand.gb.ru/api/posts?owner=notMe&sort=createdAt&page=1000",
+			"time": 328,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				328
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "19745367-908a-48ba-b398-0671c12c5da0",
+			"name": "#16_get feed of not user posts (page 3000)",
+			"url": "https://test-stand.gb.ru/api/posts?owner=notMe&sort=createdAt&page=3000",
+			"time": 331,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				331
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e21e4713-9f31-47c9-833f-8e642200cec9",
+			"name": "#17_get feed of not user posts without token",
+			"url": "https://test-stand.gb.ru/api/posts?owner=notMe&sort=createdAt&page=1",
+			"time": 286,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 401": false
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				286
+			],
+			"allTests": [
+				{
+					"Status code is 401": false
+				}
+			]
+		},
+		{
+			"id": "6643d6ab-e54d-40c1-a216-ce9a0e4a3e1a",
+			"name": "#18_get feed of not user posts with wrong token",
+			"url": "https://test-stand.gb.ru/api/posts?owner=notMe&sort=createdAt&page=1",
+			"time": 187,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				187
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "de90f8a1-9c9a-4285-9d50-aa28564f57c8",
+			"name": "#19_get feed of not user posts LAST PAGE",
+			"url": "https://test-stand.gb.ru/api/posts?owner=notMe&sort=createdAt&page=2084",
+			"time": 287,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				287
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 6173,
+	"collection": {
+		"requests": [
+			{
+				"id": "7d9d9560-4a62-49f6-abc7-0b26873ad11b",
+				"method": "POST"
+			},
+			{
+				"id": "c03a5f52-93f4-479e-981f-2d3377ac4ca3",
+				"method": "GET"
+			},
+			{
+				"id": "4f331be8-70a7-45b3-ba86-bcf5834b1820",
+				"method": "GET"
+			},
+			{
+				"id": "e76fcbc1-c388-4246-a612-a7a2034a2302",
+				"method": "GET"
+			},
+			{
+				"id": "aaf4119f-d1e3-40b5-91b4-036074ad0fc7",
+				"method": "GET"
+			},
+			{
+				"id": "113be587-630e-4fe1-9b4a-67aa0d53b0bd",
+				"method": "GET"
+			},
+			{
+				"id": "d83aa0cd-41bb-42be-a06d-ad2bb2f7e380",
+				"method": "GET"
+			},
+			{
+				"id": "c9109c84-500b-4d79-a108-78ebdb077d4d",
+				"method": "GET"
+			},
+			{
+				"id": "dfbd1385-f07d-4839-98f5-19738c6a8331",
+				"method": "GET"
+			},
+			{
+				"id": "1f8cf268-e47e-452f-99f8-7e9e4bf4fc54",
+				"method": "GET"
+			},
+			{
+				"id": "ce86ba40-2866-4644-badf-56d1fb757fd7",
+				"method": "GET"
+			},
+			{
+				"id": "42760fbd-65a4-4d1f-867b-9271d96a4267",
+				"method": "GET"
+			},
+			{
+				"id": "d9d447a6-fc63-4098-a0e3-b52ade707832",
+				"method": "GET"
+			},
+			{
+				"id": "f60e2e12-604b-4965-a80f-1bdeecadc2e0",
+				"method": "GET"
+			},
+			{
+				"id": "e4c74f47-0ae3-42b7-aabc-40a14637d619",
+				"method": "GET"
+			},
+			{
+				"id": "5ad43376-548d-4f97-9720-e680cb05eb5b",
+				"method": "GET"
+			},
+			{
+				"id": "19745367-908a-48ba-b398-0671c12c5da0",
+				"method": "GET"
+			},
+			{
+				"id": "e21e4713-9f31-47c9-833f-8e642200cec9",
+				"method": "GET"
+			},
+			{
+				"id": "6643d6ab-e54d-40c1-a216-ce9a0e4a3e1a",
+				"method": "GET"
+			},
+			{
+				"id": "de90f8a1-9c9a-4285-9d50-aa28564f57c8",
+				"method": "GET"
+			}
+		]
+	}
+}

@@ -1,0 +1,177 @@
+{
+	"id": "a7ab5638-fd3c-44a8-b7b1-b320854af571",
+	"name": "Block 1_Get user",
+	"timestamp": "2023-02-10T14:29:18.207Z",
+	"collection_id": "24701209-343bfccc-78da-4947-927e-e2ca72213579",
+	"folder_id": 0,
+	"environment_id": "24701209-2566ce45-6dcf-4250-8c55-c989143ee5c0",
+	"totalPass": 4,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-02-10T14:29:15.339Z",
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "16d52ed6-997b-4360-916c-6a1e526ecb7e",
+			"name": "#1_auth admin",
+			"url": "https://test-stand.gb.ru/gateway/login",
+			"time": 711,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				711
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "0924ea51-92ca-4237-8e77-39cf050d9277",
+			"name": "#2_create user",
+			"url": "https://test-stand.gb.ru/gateway/dummies",
+			"time": 725,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				725
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "c49330be-a1cc-4c70-80c2-f009bdae5ae2",
+			"name": "#3_auth user",
+			"url": "https://test-stand.gb.ru/gateway/login",
+			"time": 692,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				692
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "17a8fe7f-3683-4627-889a-b8ec69b43cdb",
+			"name": "#4_get user on user_id",
+			"url": "https://test-stand.gb.ru/api/users/profile/4605",
+			"time": 195,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				195
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "4230762d-21ac-4ea6-ad63-5b899a5b9399",
+			"name": "#5_get user on user_id with wrong token",
+			"url": "https://test-stand.gb.ru/api/users/profile/4605",
+			"time": 143,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				143
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2466,
+	"collection": {
+		"requests": [
+			{
+				"id": "16d52ed6-997b-4360-916c-6a1e526ecb7e",
+				"method": "POST"
+			},
+			{
+				"id": "0924ea51-92ca-4237-8e77-39cf050d9277",
+				"method": "POST"
+			},
+			{
+				"id": "c49330be-a1cc-4c70-80c2-f009bdae5ae2",
+				"method": "POST"
+			},
+			{
+				"id": "17a8fe7f-3683-4627-889a-b8ec69b43cdb",
+				"method": "GET"
+			},
+			{
+				"id": "4230762d-21ac-4ea6-ad63-5b899a5b9399",
+				"method": "GET"
+			}
+		]
+	}
+}

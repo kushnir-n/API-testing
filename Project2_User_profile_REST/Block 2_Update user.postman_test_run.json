@@ -1,0 +1,890 @@
+{
+	"id": "3c6df221-4862-4503-b8c9-81cad5bdcb4e",
+	"name": "Block 2_Update user",
+	"timestamp": "2023-02-10T15:15:02.123Z",
+	"collection_id": "24701209-a00b21ae-2132-4b76-8295-2a676dc12ecc",
+	"folder_id": 0,
+	"environment_id": "24701209-2566ce45-6dcf-4250-8c55-c989143ee5c0",
+	"totalPass": 15,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-02-10T15:14:52.718Z",
+	"totalFail": 13,
+	"results": [
+		{
+			"id": "4fa0360d-c8d6-405f-842c-5c7b64ea931c",
+			"name": "auth admin",
+			"url": "https://test-stand.gb.ru/gateway/login",
+			"time": 698,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				698
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "1d779eec-756b-4409-b1dc-e5fea89ad826",
+			"name": "create user",
+			"url": "https://test-stand.gb.ru/gateway/dummies",
+			"time": 709,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				709
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "45e3c40c-252a-4f54-9d42-cf41c68a1958",
+			"name": "auth user",
+			"url": "https://test-stand.gb.ru/gateway/login",
+			"time": 720,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				720
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "bf27bde9-92ee-46f1-8122-2d2943432577",
+			"name": "get user on user_id",
+			"url": "https://test-stand.gb.ru/api/users/profile/4607",
+			"time": 154,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				154
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "7e4237dc-b7c7-4cae-87cd-297f2e11406a",
+			"name": "#6 update image",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 171,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				171
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "bf653bc4-6f6d-4919-9e6d-9198b2993bac",
+			"name": "#7 update firstName on valid",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 198,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				198
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "65f06cfa-a017-497b-b4ce-f406b8210ddc",
+			"name": "#8 update firstName on invalid (2)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 180,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				180
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "21496fa0-156b-4507-9633-8369c6085769",
+			"name": "#9 update firstName on invalid (21)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 161,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				161
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "17301875-6f3f-48db-bb55-249c67b82ff1",
+			"name": "#10 update firstName on invalid (empty)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 162,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				162
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "1e503f29-7ed3-4571-986d-6cbfe3a22ffb",
+			"name": "#11 update lastName on valid",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 168,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				168
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e126961a-7ea2-4a64-b7d7-3d4ee28671e4",
+			"name": "#12 update lastName on invalid (2)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 162,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				162
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "e1d177d7-76ea-4a19-8f3e-1c8b53f9872d",
+			"name": "#13 update lastName on invalid (21)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 166,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				166
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "710aa7fa-982f-48c3-88d4-edaa2b4dc86f",
+			"name": "#14 update lastName on invalid (empty)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 173,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				173
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "7b8264bc-2f45-4fd8-9749-01e674ad4dde",
+			"name": "#15 update username on valid",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 708,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				708
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "732e498a-85d6-4270-9b90-936618f76249",
+			"name": "#16 update username on invalid (2)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 711,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				711
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "070bfd6a-e77f-4d18-9f0a-b3cd4d378e56",
+			"name": "#17 update username on invalid (21)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 709,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				709
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "be7b1c3b-b345-4a7c-9277-0d059a69b8f7",
+			"name": "#18 update username on invalid (empty)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 150,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				150
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "06e93afe-1583-4e67-94c9-943fd78d4adf",
+			"name": "#19 update phone on valid",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 167,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				167
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "b5bc5899-956c-4516-8dce-9994e2859a37",
+			"name": "#20 update phone on invalid (text)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 167,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				167
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "70b25e80-ad2d-4ceb-a884-d0069738229d",
+			"name": "#21 update phone on invalid (9 numbers)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 170,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				170
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "5caf2b35-b08d-4fa2-a4d7-54e495aeb7a9",
+			"name": "#22 update phone on invalid (11 numbers and +)",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 149,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				149
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "5ba6213a-3724-45e4-9eb8-e12e8146ede6",
+			"name": "#23 update sex on valid",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 711,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				711
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "596b532a-e3d4-471c-a0bc-b6cc37121f0f",
+			"name": "#24 update sex on invalid",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 168,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				168
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "cf90e4b5-e756-4089-92f9-5de79110e4e5",
+			"name": "#25 update birthDate on valid",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 158,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				158
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "56745de8-c078-416a-b52f-c86a9309b08a",
+			"name": "#26 update birthDate on invalid",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 160,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				160
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "d5042775-cebf-4643-a9f4-28be507d9ed1",
+			"name": "#27 update birthDate on invalid Copy",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 198,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				198
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "a9d41383-081d-4c83-b18a-3dd9c73bfc1f",
+			"name": "#28 update firstName on valid, image delete",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 175,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				175
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "ae30af91-0da0-45f2-a411-eaf72d68a9d4",
+			"name": "#29 update firstName on valid",
+			"url": "https://test-stand.gb.ru/gateway/users/profile/4607",
+			"time": 116,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				116
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 8439,
+	"collection": {
+		"requests": [
+			{
+				"id": "4fa0360d-c8d6-405f-842c-5c7b64ea931c",
+				"method": "POST"
+			},
+			{
+				"id": "1d779eec-756b-4409-b1dc-e5fea89ad826",
+				"method": "POST"
+			},
+			{
+				"id": "45e3c40c-252a-4f54-9d42-cf41c68a1958",
+				"method": "POST"
+			},
+			{
+				"id": "bf27bde9-92ee-46f1-8122-2d2943432577",
+				"method": "GET"
+			},
+			{
+				"id": "7e4237dc-b7c7-4cae-87cd-297f2e11406a",
+				"method": "PUT"
+			},
+			{
+				"id": "bf653bc4-6f6d-4919-9e6d-9198b2993bac",
+				"method": "PUT"
+			},
+			{
+				"id": "65f06cfa-a017-497b-b4ce-f406b8210ddc",
+				"method": "PUT"
+			},
+			{
+				"id": "21496fa0-156b-4507-9633-8369c6085769",
+				"method": "PUT"
+			},
+			{
+				"id": "17301875-6f3f-48db-bb55-249c67b82ff1",
+				"method": "PUT"
+			},
+			{
+				"id": "1e503f29-7ed3-4571-986d-6cbfe3a22ffb",
+				"method": "PUT"
+			},
+			{
+				"id": "e126961a-7ea2-4a64-b7d7-3d4ee28671e4",
+				"method": "PUT"
+			},
+			{
+				"id": "e1d177d7-76ea-4a19-8f3e-1c8b53f9872d",
+				"method": "PUT"
+			},
+			{
+				"id": "710aa7fa-982f-48c3-88d4-edaa2b4dc86f",
+				"method": "PUT"
+			},
+			{
+				"id": "7b8264bc-2f45-4fd8-9749-01e674ad4dde",
+				"method": "PUT"
+			},
+			{
+				"id": "732e498a-85d6-4270-9b90-936618f76249",
+				"method": "PUT"
+			},
+			{
+				"id": "070bfd6a-e77f-4d18-9f0a-b3cd4d378e56",
+				"method": "PUT"
+			},
+			{
+				"id": "be7b1c3b-b345-4a7c-9277-0d059a69b8f7",
+				"method": "PUT"
+			},
+			{
+				"id": "06e93afe-1583-4e67-94c9-943fd78d4adf",
+				"method": "PUT"
+			},
+			{
+				"id": "b5bc5899-956c-4516-8dce-9994e2859a37",
+				"method": "PUT"
+			},
+			{
+				"id": "70b25e80-ad2d-4ceb-a884-d0069738229d",
+				"method": "PUT"
+			},
+			{
+				"id": "5caf2b35-b08d-4fa2-a4d7-54e495aeb7a9",
+				"method": "PUT"
+			},
+			{
+				"id": "5ba6213a-3724-45e4-9eb8-e12e8146ede6",
+				"method": "PUT"
+			},
+			{
+				"id": "596b532a-e3d4-471c-a0bc-b6cc37121f0f",
+				"method": "PUT"
+			},
+			{
+				"id": "cf90e4b5-e756-4089-92f9-5de79110e4e5",
+				"method": "PUT"
+			},
+			{
+				"id": "56745de8-c078-416a-b52f-c86a9309b08a",
+				"method": "PUT"
+			},
+			{
+				"id": "d5042775-cebf-4643-a9f4-28be507d9ed1",
+				"method": "PUT"
+			},
+			{
+				"id": "a9d41383-081d-4c83-b18a-3dd9c73bfc1f",
+				"method": "PUT"
+			},
+			{
+				"id": "ae30af91-0da0-45f2-a411-eaf72d68a9d4",
+				"method": "PUT"
+			}
+		]
+	}
+}

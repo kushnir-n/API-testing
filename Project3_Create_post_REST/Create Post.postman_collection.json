@@ -1,0 +1,3265 @@
+{
+	"info": {
+		"_postman_id": "30edf232-afdb-4b07-a36a-4a1d015e1321",
+		"name": "Create Post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24701209"
+	},
+	"item": [
+		{
+			"name": "auth admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"token\", jsonData.token);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "GB202302841a610",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "9bddf9f046",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/login",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Маша",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Иванова",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "Masha1991",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89091631452",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "male",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "1990-10-01",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/dummies",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"dummies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"tokenuser\", jsonData.token);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Masha1990",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "bd73b754a4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/login",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "title",
+							"value": "п",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "2рра222ар222а2а222а2ра222ааа2р2а2а2рааа222ра2222ра22аа2ра22а22рра2р22рраарр2а22рр22222аараар2р2аррар",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "аааааарааррра222араааа22араа2ар2ррра2аарр2рар22арр2аа22рр2ра22рарааррррр2арара222рр2222а2аар2арр2арр2арарр2рр222аар2аар22ррр2рр2а22р222ара2аара22р22ррр22арааа2ар2аа22а2ар222а22р2рррраааааарра2р2араааа2арааа2раа2222раа22рар2араааа22222раар22арраа2ар2раарррра22р2арр22раа2ар2аар2аараа22аарра22р2ар2а2а22рарарар22а22ра2ар2ар2ра22аррр2ра2р22р2ааар2а222а2аар2а22222а22раа22а22222рра22а2аар2аар22ааааар2ар22а2ар2раррр22р2а22а2р2ара2222рарр2р2222р2арааааа22аарарааааа2арррр2р2рррара2а2222ааа22аар2а2а22рраа2",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "dddddddddddddddddddddddddddddddddddddddd",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "h",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "рорп1212опро111о2р222рр12211про1121оррп1р11п1рпр2р2ор1по1ор212р2о122оп1п2рроор2р1211п1пп112211212оррп2рпр22222орп2ро11п12пппро1ро2221рп1оор1п1оо2прпр22ро1ор2роп1о1п211о1ппоро112о1ррпппп1ро22п22п211опоор1прр2опо2рпр2о21пор112221р11оорр1п222ро2о2поп2ор1о12рор1р22порр12пр22о2рорпр22п2о1о1ророооррр22ппооппопп21р1пр2р1оп111о21о1ро21ропо1оо2о12ор211опррр2оо2п2о2рппрр2221пп222оопр121п1ор2рпоро1п2о2оопп22п22122о1122оо11опо1222р1п22ппо1прр21р21прооп1212роп11оо1о12о22рп2о1п2оппп2о1122112221р121о1рооо21пр1р111р2о2оо1роооп2опр12о2о22п21122пор2о122о11опр2п2по1п12поо1пр22пп11оррпрп1о1оррпоо1р1роор22п211поп21ро2рп12по2112о21п1р2р2опп2р1п111по1п222ор12про1оо222о1рор12рп1п2ор1ро2121р1ппопо2п2122рр2о12роо22ор1ропп1о2по22122р222о2р222р22ооор11оп2порр1ропроо1ппороп211оорр212р12п1рпоропопп2п121р1121р2р2опп12р11ор111поо1п1опор1опп1по1221прппрпоп12орроп2по2пооопр2оп1о11оопо12р1ппр1п112опрр1прроро11орр1р2пр1рп22222о1пр1ороорп1о2п2р1о122оо11ро2по1прроо2р11р2о1роп1п1111ппроп2ппррпо12пр1ппп11пп2ооо2р2рп2п1опр2оп",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "title",
+							"value": "k@ggkkk@gggggkg@gk@ggkkgkkgg@g",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "плппрпапрапаппррпллрараррпппаарррлллрплрлааааплпаа",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "б",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/png.png"
+						},
+						{
+							"key": "title",
+							"value": "ллрпралпл5апррап5р55ллпрппаап5",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "арррпалапрраапаарлплпаарп5п5лраллрррр5па5лпа5плпл5па55лрраарл5ларрлр5ррпрппа5рпр5арлраа5ррапалр5апрл",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "в",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "fgf@@ff@@j@gf@gjjgf@@jj@@j@@j@gfg@jj@jf@",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "лрп1ррпрлррпл1ррпа1рплпаррлр1па1лппаааррлррраплр1па1рлпл2пппрпп11ппп22рлр1арп2рп2ап21пр1арппрпрлрп2р",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "gllgljgjl@j@@$@kgjk$g@gj@@g@kgjl@g@$j@$k@@@lg$g@kklklklkgl@$@@@g@@$ljg@g@lggj@kgk@$gglggggl$jk$jgk$g@$kkkl$$@kggg@$l@ggg@jgg@$glkk@jjkg@ggg$ljlgg@@kjlk$jkk$kjklkg@k@g$@l@gg@jklllk@gl$kj@g@jg@glkg@@@@k$lj@$@jj$jgjlgglll$$lggk@g@jkgg@l@l@l$@@jgl@j$$@jggk@ggg@j@gg@g$@lj@glg$g$g$$$@gg@@$@$glk$jgkg@j@j$@@lg@$j@$l@k$@$g$jg@jj@@ggg@lkk$@@@@@$$@kj@@ljj$g$@g$k@gljgg@ggj@gk@$$glg@k@g$$k$kglg@@@gj@ggg@gj@gkg@@g@gkll@$g@lkglg$$gj@lg@k@kgg$@l$@g@l@$$@k@$k@@@gg@j$$@@jj@l$l@gk@llgkg$@@jg@g@@@l@@gl@jgkll@gll@gj",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "title",
+							"value": "лллопрпорл2о1ппро221лрпрлол121",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "lglgljlkgkgjgglgkglgkggjgggjglljggkkgljkgjkkgkglgg",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "2пл544ппалплрпа55рп4пр4р5п44л5а252лп2242л4п22парлл2л4рп44аппа4л424па5п42п42пр52раа4ррлл2рарл5прл425аа24плрп25р52лп5лла5255525а54р42лар5ла4а5арррп4рллр4па25аа4рр52п44а55р4п5п24раара25п55пп4п2ллалра2прр2рпп44пплл55а52па2лрр2лл24л52а544пл522лл5лррлпп5плрлаарпл45ррл25лп2ал5254ппа5пр555пплра5а4п2арл2прларл24ап2аара52алп55п25а4па2а242р42255р24ллл2п42р5лапаа44р5л2422рп2п2242пп5425лр42лра545л45лппа244рл45арпрал42а542р24рла2аарпа54л42лр5пл244п4ал44п2а554лр42ла5пл2542раплпа4а425пра2л2лр5а522рлр4лап454а4лр",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "title",
+							"value": "hhhklghkhjhggljhghghlklllhlghghhgkjljhgg",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "jlg@jl%@khkh@@%lljggghhjgjh@gl%jkhkjkhjlkg@l%lkhjkgh@gjklh%jl@%k@kgj@hgkghgl@hhj@glkgjkhj%lgghhjg@gh",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "аоаоаоопроороооппапппрпаорапппоаоооропрпорпоапрпраоарппапаоооаооппопапрпппооааррароопрпппаоорроооаоопопопппарарроропаррооооррооппрорпоаааппоооорррапооороороопапопарапрпооропоорорррпропорпооооароооопарпрпарррпооааоапоаапроппаааоапрапорораооороопаоорапаоороаопоррроопрроаоаорорроороаорааоарпапоррппрарарроопаоооааоопроооппаооооаопооооппоопоропарарооаоооороааорооороппоаапаоопорароаоррррооппоааоопрооааророоараарооаооапоапопапоопоррпооаропоапоорооаоопопоппоаоааапоппраоропппопрааааопоопооооарроорароороп",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #8",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "а",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "ооаппапаоаоаапоорпаоаррапрооароооопроррпопооопаорорпоорроарорпаараоорооооопопооааророрррпоаоапоооопр",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "kglg;l%g@%h%kkk@@gll@l%;khklglg@;g;;@;lk%;@l@kkl%h;;@h%;g%g;@kkhk;;g@lk;h;h@%k%g;@@@h%gh%@;kkk;l;%lkgh@@%hhhhhh@g@glhkg@k@%lllh%%g%@lgkll%l@hlhg;g;@%lklhg;;@klh@@@%ghl%%g%gh@g%k;llk%%;l%h;%hl@h%kkgl%hhg@kh;h;gk@kl@k@h@;l;gh;gghg;glklg%;hl@klh%lhkkg%%lk%khhhlh;@@;k%h@hlh;hgl@lghh;h@@;lg@g;gklghggh%@@@l;@hl%%klkh@;;gl%@l@h%l;h%;k;h;gkg;k@;%gggk;k%ghgklkl;@h%kggk;@;;h;l@%h;%lgk%;hgk;@h%;%g%%k%hlk@;lhgglgg%kl%khlh;lk;gklhhhh%kgl;@lkhg@@lk;h@g%@;@h;%llh;hgk;;@%@g;;glk%;%;hg%llh%kk;%lll%%hgghk%llk@lg@gklhkk%k@hgkkh;kg@%h%%;h@@kk;h@h%gg%k@%;l;gghh%lk%k%l@klkl;g%h@l@hh%g@l;g%@hhkl%h;@l;k%%;gkg%%gggkhklkhhgk@;hgg;;@ghkklkl@gh;;@@%%g;@h@%ll@@;%;@;@;%h%%glgghglgl%g@%lkk@g;g@h;hhkg;g;%;glk%@gh@k%;gh@lhhl;kh;k@%;g%ggg;g%kkll;@kklh@g@@k%gglk@h@;gl;h;@kk@%kl%;@lll@ggk;kkg@g@@;g;%;%%h;%l;khhl@@g;k@k;klgl;;kk@%kk@h@;;ggkglh%kl;@gkghkghhl@kl;%kk;%%;g@;kh@%k@kglh@lhl@@k;%l;hhg;@;;@@lkhlkkk%@;kklgkg;l;l@l;k%k%%;@kh@;gg;hg@gh%l%l@l@@%@kl%hl;;k%gkghhkhgl%k%kl%k;ghh%;h%h;g%%l@lg;ghhh%g%khkgg;@g;g;h;%l@hg@%@g",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #9",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "title",
+							"value": "п2поа3п4оапо432п4а43папппдапп2п3пдоп2оп2",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "ппдоддоаоопоопдпппдппааадппаооодопоаддппаапопоодаа",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "ggggllglhhglgghgghglglglghglllggghllglghhglhllgggggglggllllllhglhhggghgghghllhgghlllglllggllggglgggggggllhlhgglgglhlhlgglgglglgghghgghlglghghlhlglghhgghglghllgglgghlgglghlhlgllhllggggllghglhhhggglghgghggllllgglghlghglghllglglghlgglhhgghglgglghhglgglllghgghggghghgggghhhggghlglglhggglhlgghlglhllgllllglhgglglghglgghglglggghgghghhglhgglgghllggghglhghglghhhlhllghllgggglhgggglgghllggllglghggghgghgllgllhgghgglgllhghlghhlglhhgglglggghggllghhllglgllllglglghhgglglggglgglhhhhggghlhghhlggggghggglghlllgghlglhglgglghggghllhllglhghhlgghlghgllghhhlgghlhlhggglgggggghgghghhhggglhghhggggggglhllhglgghlggghlgggggllllglgghggghhgghhlghlhlhgghlllggggllhghhgghglghlhgglhglggllhghhhlglglhhhglghhgglgghgghgghglghhhgggllgglhgghlhghgllllhghgggggglllggglggggggghhllghhglhglhlglhlggghhhlhhhlllggllllglgggggghllhlghgghhgglhgglglhgllgghlhllhgghglllgghglhllhghlglghglgghgghgllggllhhggllhglgghgggghhhhgggllhllghhggghglgghghhgghllhlhgglglhhglhghllgghlhhlhglllgllllggggggglgggglhglhlghhghhlgghghgggghlhhhgglhgggggggglhlhllggggglh",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #10",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "title",
+							"value": "2жж3ж55344ж52ж25ж5р2п4525жрр32",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "g",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "jjjggghhggjggkghgggkhhjhggghjghhggghhkhhhgjhgjgjkghhhghhjgjjhhjggghhhjkhggjhgghghjjghghjjghkkjhghhhhgkgkggjkhkhgggjgjghkkkkkhkjhkhkgghhgkhghhgkghgggghhkjhkkghhkghghhkghjhhgkkhggggghgjgggkghhgjhghgjghjkhjkghjhghggkhghhhggghjjjgkgghghgjghjjgkkkgggkghhghhhkhjggjgghkjggghhhhhhghjgkhgkhjgjghhkjghhggjhjjjjjkgjhhhkgjhhhjhkkgkgjjggjhgjjggkhhhhhhgkhhhjkkgkgkhjhkhhggkhhghhjjkhhgghgkhhggjggghggkggggjhjgkgkhkhhghhhhhgkhjhhghkgkjggggjkhghjkkhkkghghgkhjgkjhkkjjkhhhkhjggkjhhjjkghjjgkhjjjjgkgghhkjghjghhhhkhghgg",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #11",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "hk$gjjjhj@@ghhgkjghkhj#hgg#j@h#hg#@kh$$#",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "345ддп3п3п4р4335пд3р553лр5рддд4рд5ррл5лрпд3д34др5пд45лд44ррлр4лд3дррдр435лрдр4дрд53р43д4ддрддр34прд3",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "llkghkhjgglgkhjggljhgghlhkllkllhlhhggkkgjjjhjljjkkhlhjkjgghhgjjhkhhhhlkhhhhllglhhghhjjlhjjjhhllhlgkjhkjlghgkhhhglkjhjhjjjkkhhlljkhljkjjkllhjjkhhjlhkgklhkhlhkjkhjkhhlhjljjklhhjlgkjjjghjjkgjjjjljhghjhgkhhhgkjlkhlkllkgglhhhggggkllhhhhjljjhhklggkjgjhkjkjjhjlllhjljkhhggjkhhkhhlkghhlgkkjhlhjllhjggljhglhlhkhhhjlhkhhgkglkghkkljjjjjlkjkgkhkgkjhkjhghgjhghkljjghhhhhhljjhghgklhllgkhglhkkhhkkkllhhkklghgjhhggkghlggjhgggllghhgjkhjkhhhhljklghjghkkjjlhhlhhghkhhghlghhllhlhhkghjkkgjlgjhjjhkhkjhljjkjkljjghhkjkjghlhjjhghjghlhlglkhjhgjhglghjhkljlkglgghlhhjhljhkhkhhghkgllgjkglgglhjjhjhjlhhlhhhklgjhkhghgkghlhhhjhlhjjhlhhgkkhgjjkhkjhgghghhhlhhhhhjhghhjlljlhhlgkjggglkghglgjlhkklgkkhkjhjghghjkgljjjhkhhjgkgjkjghhkhhhhglhhhgkkhkhlhkhkhhjhhkkjhggjhkllghgghkggkljkghghhjjhhhhlhljgghllhhggkkhhhhhglgghklhkgghkkhjjhhjghlhjhhghhjlhghjghhlgkhhhhhjklghhljghjlhhjkgkhhhjkhhjlhkgjhljkkjlgllhhlghlkljhkjgjhhghhkjhhlggkkjhhhjlghhhhjgkgkkkjhjjlgghkkgkjhhhkhjhhkkgkhglljhhghhkhgglgggkhjhhklgjhhjgklhjjjhhjjgjgjhhjkljljjhhkkhhljlkgkh",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/png.png"
+						},
+						{
+							"key": "title",
+							"value": "ы",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "k№\"jh№jk\";№\"hh№k№h№№;l\"hhgkh№№khlhkl\"h;\"hlg;h\"№\"jh",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "jhhghlhhhhhggjhhkjljjlhkghjhjjgkkhhjgggjhhlhjghklgjljghkjgkgjhlhgkgjhhgkjgjjglgkjglllhhjhhklhhhllkghjjgjhkjhlhkhjllklhhhlkhkkkjjjhjlhhhlhjglhhllghhllgjlkjhhhkgjlhhhljgjhljlhklkkjhgkjgkjjhkhkllljlkhkjhhjhhlhhhjhjlkhhlkjghkgkkhjjghjgjhjkhkhjgjlhljkkglgkggkglllgljghkghgkjjjgkhkhkhljlgjjhgkklghjljhgghghhhkhljklkhjhlhjhkghljghgghghhhhhkgkjjhhhkgkjhljlhjgghhhjlhggjgghhgjlhhjhkkhkhkgjhjjkjllkgkhjjhjjhkhjhlklghhhhklhljhllkghhhjhkhgghlhhgkgjghghlggjhlglkhgkgkghhhhkkljhljkkljghhgghlkkjjjhkhhkhhhghhjghhhlgkhghljjlhhkhhjhjhhkkghkhkhhhkgglglhhhjkhhhjjlgjhhljhjhjhjhhghhhgglhjlhghjgjhlhklgjjhhjllhgjhlhghggjhlkhglhllhlhkhglkkkkhjjhhjlgjhjhghkjllhhgkllkjjhljglklhgjjhhjlhjgljkjllllkhjkghglhgklljlkjhkhghhjhlhlljjghhgljhghkjggkhklkhhglhkljhjhgglghhkhhhkhjjghjghkhghgkjhklkghggkhgljkhhhkjlkkkjlgghjkhlhggjhhjhhglhjklklhgjlghlhgkgkhlhllgkhlgkghlljjkkllkjhgjkhjkhhklklhkgkhgghkgghglhkhhhkjjhlhgkkklgjjjglhkhhjhjhlggjhlhghjlhglhgkghghgggjkhhhhlkjhlkjhjhhghlgjjglhkgjhkglhhkglkkhkgllhlhhhljgkjhhjgjkhhhghghhjhjgggkg",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #13",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "title",
+							"value": "hlggllkhhhhhhgjhlhlhkhjhhljhhl",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "ппд6пплолп565опп7ппоо47п7п7л4одоп76ол65п755о4по655",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "k$ggkggh$%!hj%hhhj!g$%h!%g%gkh$%jkhkj%jhh$!!%h$gjj$$$jj!jhkk$hk!ggghgg$gk%ggg%jg!%%$hjjhg$jg$hhkkkkjhkg!$$h!hg$g%g%h!gh%gjjh%g$hh%jgkghg!k!hhgghkhhjh%k!kg%ghg%$!h$g!$$jhh%j!gjhg!hgggh$%gg%hh!h!ghgkhh%$k!!hkjghjhjh$ghkh%%h$hgh!!h%jhhhgh%!kgggk!%h!jjhg$!%j%$hkhhkgjkg!hh$!$!h!hhgjhh!ggkh!$ggh$hkk$!!kjh%jg$%!hgjgh$%h$g!h!h%%gh$jjghjkjgh$!$%!%!$ghkgh!kk!!$kk$hhh!$!ghghgkgh!jgg%$kg!hggg%%!%%$gjggg!$gj$hgk!$gh$%ghggjh$%%$%g$%h!jh%h!hk$ghg%h%g%$gj!ghhg$gg%jk%$g!!hk%$gggj$!jkhg%kh%khkjh$!h!!!kgj%$!!hhjgg",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #14",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/png.png"
+						},
+						{
+							"key": "title",
+							"value": "h!j%!%hgggk%h!kggg$gh!jhgj!k!g%$h!h$!g%h",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "прпароааапоаоаопорпрпорарпаапарраороапоаоороааоароапрроаапорпрррорараопоаоаропапаррпаппраааропаооапп",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "ооп6прора5папарпопоро6п7р7п557а7а65о6по5оа6а756ап7аа7ар57аап755ооар7оррп5оо75556ао7о7п55р7прпппра57арора5ооо667па756п7аппппп6рп5765ропаарра6п7пор5поп7паа6ао5пооа6ррап6п7р77опп5р5556ао65р7р77раопо575пр766рпаапа5п76рао5ааа657пп6орооо6р6роо6аоаор7рр7р6575паа7ороп6орра6ор5оппаоа566ппоа7ап65р5по55аао56п5ра6577р5о6а7р7опоппо6пп757оаа55о5рао6п7а6пар7о5р675оппо765ро5прропоо66о7прп77а7рп7р77оп76о67п6а6п7о5п6р7а66рп6755р656ооп55рпоп7п76про6поаопапара5о6ап55рап56арар7арропо567р766576опопо775паоп7ара6пп66р5",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #15",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "7ара75ар6о756о6а77пп7па75о7п55п5о75о5565",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "f",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "в",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #16",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "п",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "ghhgjhjgghjgjgjjghhjgjhhjjhgjgghhhhggghgjghjghgjgjggjhjjjghghhghhggjghjjhjjhgggggjhhhjhjjhgggjjghjjg",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "п",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #17",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "$@#$$gj@$$jgggjj##j@$h@h$@@@#@",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "$#h#$hg#jhjj#j#hgjh@h@h@$gh@hjj@@hh#j$@g@##g@hgg@@",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "hg$hh$#$$#g##hhh@$#$h$hggg$@$hg#jg#j#h@#$gh#gg#$$j@@$@$g#@@h@j@g$ghhhj#ggj#@gj#hg###j@$gj@j#$hh$@$$#ggjghj#$$@h@@hhgj@#j#g$gj@jh@@@g##hjgh$gj$$hgjg#@gg#j#jgg@h$hhj#jg@@hg@j#g#hh#jhh####j#gh@ghh$#$gjh$gg@gjghggh@gh@jhh@$hj$@jhhhg@#@@@j@#@@jj@ghhjh$@j#$h#@$@j#j$$@$hgj#$g@hh#@$h@$j@j$@#ghhh$$j$@@$ggg$@g#gh#@h$g$$g$@j$#jghgg##gghggg$$##@@jj$h$$g@@$$@$$jj@$jg$jh@#gj$#h$#$#g#$#g#j##$g$h$#gjg#h@j$jg#gjgjgjg#hh@jjg$jjg#hj$$gh@ghj@$$jh@h@#g@j@ggh$hgg#ghj#ghhj@@h#hg@$gg#@h#h@g$$g@#h##$$g@j@jgg$h$$$$jh$h#j#h#j@ghjhhj$$$gg##jgh##hhhg$jg#gj$@@gh#$g$h##@h#$#$$$#j@@@#@$jg@#ghgg@@@jghghg@$jg#h@@@jjhh@jjj@j##j#jjjj#jj#jj$jjhh$hghggh$#@gghh@ghhh@hhh$###$@@#@j$gh@hgghhhhj@j#hjhjj@ggjhj$$$@jg#g$h@$#g$#@j$hg$@hj###j#gh@$gj$h##gjhh$h$gjj@@#j#h$@$h@@#$jj#$j$jjg##@jjhgh@j##j$hgj#@#j@hh#hjjg#h@hggghj#$@@j#@@gjgh@$#@h$gh$hhhjgjggjh#h@$jjj$j#@#ggjghghgj@jg#jjg$j#jhj#h$@jghhghgg$hh@h$#hhjgjhghgg@@hj$$g#gjh@h#hhhh$$#gg#g#h@hjhghh@$$#@g###@@##gg$g#jj#h##hjj#j$jh@jjg#h#$#h@#$gjg#hh#jjh#jh@g$j$g$@hh#j#gghj@@$$hg@#j#h",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #18",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/png.png"
+						},
+						{
+							"key": "title",
+							"value": "оаппаоораоаааоропооррооророарпрарораррпо",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "раооппарпаараарроараароппорароааоппаоапарпрпрпрора",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "$fjg#ghhgffh#h#%%jhh$fgj#$$hf#$h#$#fhh$h#$h$ggf##hfghg#ggghgfghj$$f%#h%gfghfhg$#gjhhhggf$ggf$ghhfjh$jhg$jhg#$$g#gjgh%gfhjg%fghfh#gjh#hgggjghjhghhh#%jjg%jh%%#fj%jjg$#f#fgfhg#g$fjh#hjh%g$h%#hh#h#jg#fj%jhf#h$##$hgggh%hg#fj$hhg%j$hfh%jfh#h#$hhhghg%hj%$%%g%g$#h%gf#%gf#$gggffgjjhhg%h$gg$#h$g%%h$g$ghgf#hhg$f%%%hf%ghfghj#jjj#$%hj$g$hgg#j$h#gfh$g$%jff#h##gh#%%j$h%hhf%$hf%$$hgjh$$gjhfh$ghhgggffjhhfh$g$gffj%h%j#jj$h$$f%#%fhfgfjhjfgjg%gg#%hf#gj#f%h$hfgfg$gggg%ggh#ghg$fhhg$gh%$fhjfh$$h%$hgfh%gjj$#$f%gfgjgj$f",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #19",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "title",
+							"value": "6ролаалппоп6опопапп4прп4л6ппп5лрппапоа4о",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "hhj#gg$l#g@g$l@h@gkj$g@$ggjg@gkljhgl@jh#j$hhggg#lk",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "jg$jlkkj@@@#$$hkj@#gl$h@g#hk#ggggg#g#g@##hhl#gj#h#gg$hlh@g@k#hlljgkj$@@g#gj#hlhggj$h@g#khk$hhl#jkg$lh#g$jjg##gglk$jgjklj@h$#@ghl@#l$k##gh$@gk@hl$k@#$kkgkgggggggkkg@hkghgk$$l#gg@h$kj$hkjj#$gjg@#glhg@kg@k#@@jj#@ljkjh$k#$g#$jggg#hkgl$lkjg@@#@#glgl@ggjgkkg##gjkhgjgkjjh@@$lgj$@@j@ljjg@kghgh$#hgj#g@l@klkhlkg$kjj$l$hkgk$k##h$kjggl@$$gg$lgjggg$gj#@@h#$$lhkk#jgkh#gg#jglhh@hg@lgh@$gg@h$@@hhggj$h@$h$j@@$#jlll@lgl$jk$@l@h$@gkkj#g@lhk#$k$#$hk$l@kl#g#ggk@g##kg$##jh@k$#g$gg$lj@gk##$@hjjhgkl@#g$gkkh#ghlgglh#h#j",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #20",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "lhjkhgkglhghklggkhgggghlkjljjk",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "kggg$lhggk%kjjgkgljgkklgghhkl$gh%h%hghh%j$#hkllkhkg#g%#glg#hgjk%#g#j%g#gg$gl$jl%$g%k$kgj$$ljkggjlh#k",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "п",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #21",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/png.png"
+						},
+						{
+							"key": "title",
+							"value": "оплпопрпррпоооолрппппопллоплрл",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "f",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "#$h#hjj@h$$hhgg$j$##jjjg#hg@jhgg$$##ggh@$$g#gg@@#gj$gjghh#ghggjjjghhh@gj$$jhg@gg@@jhhgj@ggg###jhgggh@j#g@hjhggggjh$ggghg#h#hggggghh#@ggh$##j$h$$h@g#jh@h##j##hjgh$#jjg#hg#hg$$j$ggjgg#$hhg##g@$gh#gjg@jhjh@@j@#gghhh$@jjghh##gg@ggjgh$hjh$#$jh$$h$#j$##jggj#hgjgg#g$#@j#g$jhgh@j$@h##ggh@hg@$gjjggg$ggghgh##jj@gh$$$j$@@g$$$$h@hghh$#ggh$#ggg@h@#@g@ghgg$gg@h$jg#jg#gh$#$j@h$jghj#g@#$g@g@gjggjgg#h#$hg$$$$@$gjh$hhh@jgg$$#hg$hhgjh$gjjj@ghg$@@h$jg$ggjg$gjghj#gggg@$j@@#hg#$hg$j#ggggg@$j#$@@$$hjg@@$g@h$jg@j#g$@ggjjhgj#gg$#$j@$#gj#g#jjhg@$#$h@@jj$g#gj#jh$jgg$@##jgg$$g$#@$jh@##gjggj$#$g#hg@h#h@@@#jh#@#j#@gh#h$$@@$ggh$@g@g#$$j@g#@@gj$#g$gj#@gghhgg@g$gggjhghh@jgjgj@@g$ghgg$@hjg#$gh$h$j@#gg#$@$@ggg##hjj$@#h@gggjghj@$@gg##$ghh@ggjhgg$#ghh#@##@$gh@$gg#h@gg#g@gj$@jhj@hgjg@hgj$gg$g@h##@hj#j@g@g@$@#hg@@j@jgj$g#hg$ggh@ggggggjggggghgh#hhgj@#$j@jj@$#g#h#ghghhghgg$j#jjhgg$hgj#$$gg#j@g#gg###jgj@g$h$gj@h#hh#@hjjg#j##hgjghgj#g###j#ghg$$#ggghhhggjh##jg$$@gj$gh@@$$ggjjggg#$gg##$hggjjghg@h$h$@jghgjhg#g@h$@@jg@@gggg@$h@g$g$",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #22",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "jhghhgghjjghhjjggghjjggggggggghjgghhjjhh",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "палрапплпоаоплопаалполппоораопаалраоорапралппопррпплоаарлрааапллорараарооапллалплааллплплрллаоаррааа",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "kghfgfgfjjkgggghhkhgkfhfhhkkggghhfgfgghhhfhkffgfjfgggfgjjjgghkkgfkghjfffjfgkgkfjfjgjkkhjgfhkjgfkgfhghhhhghgggkhhggfhjffggkgjggkhkkjgjghkfgggjkkggfghgffjhgkkkghggjgfgjgkkgjfjfhggkgkkgkgkgfhgjjggkggghgjkhjfhggjggkgfkghjfhfkfgjhkhgjhjkfjkgjgfgjghgkjfkfgfkhjhkgggghhkgkjggfgfjkgfgfjfkfgkjkkfkhgjkgggggghfjgkfhjgfjjhjjjhghkkffgffjggkgfgffgfjfhghjhhhgjgkjfghhghffkgfhfgggghgfggggjfhhhjkffkfjhgkgjkgfgffghfkkgfghfgfhggggghkghfhhkhfgjgjjhjhfhfffhjjkghffggjgghfghfhhhjgkhkjgjjfgkhfggkgkghhhkgkhjkjjghfjfhgfkgj",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #23",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "title",
+							"value": "#kgghhgfhg@gh#g$@f$hkkjjjghj#gkk$$$jhgg@",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "f",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "$f$g$#$hk##gkj#ffhg#g$#gkk@kh$$@kkggjgh$jgj@@@fkhfhg@hkf#g$fggfkkkjgggjjhfg@g$jfgggg$f@fhgj@kjjkggkfjgg$jh@kfgfgg$##h@gfj#h@$kk##$k#j#@fkg#k$@fjjg@jh$$@$@$@ggjhjfgjff$#kgk$fkf@@$gk$##$ggj@f#f$#$jjf@gjfh#h@f$jfhjgh@fgfhggg#@fggh#$@k@kh$$fg@k@gj#h@j@gkfgfggk$k$hgk#$j@g#kgggfghjkfkjfggg@kf#ghg@@hjhgjg#$k##$h@j@jg$hh$jh@#ggf@$khg$@hjg$fgg$kggfjhggf@#gj@g$k#kk#gjk#gh$@@j@fhk@ffkhjj#fkggjkk#$g$jkh$hghkjj@@kg#@gfgg@hhgg$@jggh$#jgkhg#gggjg#hg$##@#j#@jgkhj$kkjj@k@#@k@jfk@$gh$@$jgjg$f#g$hhfh@$$j#$##g@j@fkf@j#jg##fgf@#gg$@#fh#gg#kg#kjhh$h$#g@h$hh@gj@$g#g#fh#gfkh$jg#ggg#fg@g##hfg@@j#kf##gf@kg$g@#hgjkhjgfg$#g#kh@#h#ggj@#fg@khh#j@gj$f#$h@fgkjgjh@#g@$gk@j#jkhffhhgg#gkkh@f#$$fgjgkhgffg#h@@j@jfj@$ggjjhg$kkghfg$k$khkhf$ggkhkgggj@@#$f$$khfg#khhhgfhhghh#ggf$khkh$gkh@@$khjkggjjjgkfg#kj$gfkhg#@kkf@kfkjhjf$@g@$kfg#g$$gh$$g#ff$#ghg#f#f@fgkj@hfgjg#kgjggg#kk#fg#gkgk$$k@g@$fgg##j$h$#jffgjghfkk##gj@gj@hj$fhjk@ghjjh$ghj@jg@ff$hk@$f#f@@$j@j$gfg$@@j$@g#ghk$kfg#hjg###@kgg@hg#j@gfkg$g#jfhkf$gg##jg#@g$g###ggg@h@g@gggfg",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #24",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "0л0плп00аропо33пплпра03прал0пол0аапоало0",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "03рлопр3аарллаппа3опоп3аапоор0рпапрлрро033ппр0пл30",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "а",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #25",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "title",
+							"value": "п",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "f",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "hdg#h@gggggggdh#h###g$$#ggg@dhg@ggh$gggdggggggg$ggg@g$dgh@#ggdgghdhg$gdg$d@h##d#gg#h$$$hh@gg@g#hgg@g####h$$ggggg#gggh##gh@dggghhddggg@$ddg$d$dd@#g#g$$dgh$$#$g$hhghhdgg@@dgdggghgg@$d#g$@@hdghdggg$#d$hhggg@@gdg$g$g#@##g@gghhgggdd#gd$gd$g#$hhdgggghd#g$gg@@$##g#hgggghggg$ggd#dg#h#d$g#ggd$hdg@#g@@gg@g$h@gg@@g@g@$#g@ggd$g##$@gh#$ghh#dh@d@$hghh$g$h@g$g@#gggg$hhg$hd#dghg@gg$h$g##gdg#$#@@g@$d$$gggdgh#$gddggggg$$g$dgdgg#@d@dg@$#d$g@h##$@@@gg#$hdh$gg##ggghdg@$$d$#$h@hgghg#@@gg$@ddg#g@#gggddggggdgdhd##hd@g#",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #26",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "ппааррррр4333раппапрп33а3па3р3рппа3апараррп4рр44п4",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "п",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid post #27",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "ааапааррраарпрааррпррраарпррараарраапррарffffffffffffffffffffffffffffffffffffff",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "f",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "$hh$j$ggkj@#$gh@#hh#g#@#$jhkjh#@@#$hj@#j$@jj@ghk#g#jggj#gj##gj$$#kjhj#h@k@kkh#k$h#jgh###k#gghjgkj#@@k@jg$$@@@ghjh$g#jggh@kh$kh$$kk$kjhj$@gj##j@@jjjjjg#$hjg#j$jjj$g##@jgkj@g#hkg@hh#hgj@j#@j$$#k@$h@g$#ggk#g@kj$##@k$#gh$@@kg#hjh$jjj@#$gg$$#g$j$h#@g#$$##g#@kjkghgjh$@$k#hg@k$@@g@g$#ggk$#jh$#hj@#gkg$@jkgk@ggjjg$#gkhk@k$@j##$$jjk$kkggj@@##hj#@g@hj$$#@k#@@jjgkh#@$kh@khj#@hg@hk@kkh@#kgj@$#hgkk@hgg#jgh$#$#k$k#$k$@kjjg#$gkjhgk#$hhj$j##@kjjhjkk@g$jgkjg#@##khjk$k$$j$j#gh@hj@$$@kkh@k#gg@k@kg@#k$jghkjkkg$k#gjj",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #28",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": " ",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "f",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "$v#v##@#j@#v#@hv@j$vh##h@jjh@$hjhghg@vg#@hh#hgg@$h@h#@gv@##gvjv##v$##jjhghvjghvjv$hjjhjg@#hh$vgh$#ggjv@hg@h@g#jv@vjg#hvv@gh@##$jhhvvghvh#hg@@$h#v#v$hgg@jhv@jggg$jhjjggvv$h@@@gg@$$@jjghgj$$g##$g@@#$j$v###hv$g@jh@$@g##$##hgjggh$@#vjgj$vgjhgvhj$h@gjh@gjh@jhj@@jv#jjh@@$ggjjg$h@@jv$@$h#g##j#h#$#g$vv#vvvj#$j@#@gvjhgh$hv#g#hhjj$vg@@hv@j@$v#g$#hjjhjvgjv$hjjvvvvhhgj$jhj#jvggvghh$v@#jhv$g@@$$g$$#g#vh$gg@#vj@$jggg$#j#h@j$g#@v@$hv@$$#vvv@h@@$vgjghhhgv$v@#g#vg@hjvhh#$#$jh#@@hvh$j$gvgj$g#@#@$$$@j@$#@#@g@$jv$g",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #29",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "аа33а35папаа34а3а454аа4ааааап4п5аа5аап4п",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "а",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid post #30",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "р",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "jghhggghgghgggggggjgjggjjhjhgjjgghhjhjhhjjhhhgghhjjhhjjjhhjjjhjjghhgjhhgjghghjjjhhhghjjhhjhjhgghgjhhg",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "#gh$$jh%gj%hgjg$hh#h%g$h%hh%j%jjg$jh%jh###hggj#h#g$$gg$hj%%$ggjjhh%ggggghjj$#j%hjjhh##ggh%gj#ghjhj#$ghg%ghj$%%$h%#%h%gh$gjjg$#$hgj$hgjh#j#%$jggjhhhghjjgjhhg#hgg%$hggj%gjhggj$hj$%gj$%gjh%jj%%gjhh#j%%#j#g$%g%hg$jjhh#$gjhj%jh#hh$ghgh#jggj$#hghjh$jhgghg#jhj#j#hjhh%gg$gh#g$gg$hgjhhgjjjjjh%hj$gghghg%jg$jjggghj#%gh#jg$j#h%jgjh%#$hgjg%hhh$gj$gjj%#h$ghg#h#j#g#h#jj%%jhjj$hhjh%#hgjhg$j#jhghjhjh#ggj#hhhhjjjjh%h$$j#ghjgh%jjgh$#$jh%$$jjhh#hhghj#hjj#jj#j%j%gghj#jg$jhjghjgg$jg$g%g$#gh##ghj#g%hjjgjhj%jgj$ghj#hhj",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #31",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "а",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": " ",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "#gh$$jh%gj%hgjg$hh#h%g$h%hh%j%jjg$jh%jh###hggj#h#g$$gg$hj%%$ggjjhh%ggggghjj$#j%hjjhh##ggh%gj#ghjhj#$ghg%ghj$%%$h%#%h%gh$gjjg$#$hgj$hgjh#j#%$jggjhhhghjjgjhhg#hgg%$hggj%gjhggj$hj$%gj$%gjh%jj%%gjhh#j%%#j#g$%g%hg$jjhh#$gjhj%jh#hh$ghgh#jggj$#hghjh$jhgghg#jhj#j#hjhh%gg$gh#g$gg$hgjhhgjjjjjh%hj$gghghg%jg$jjggghj#%gh#jg$j#h%jgjh%#$hgjg%hhh$gj$gjj%#h$ghg#h#j#g#h#jj%%jhjj$hhjh%#hgjhg$j#jhghjhjh#ggj#hhhhjjjjh%h$$j#ghjgh%jjgh$#$jh%$$jjhh#hhghj#hjj#jj#j%j%gghj#jg$jhjghjgg$jg$g%g$#gh##ghj#g%hjjgjhj%jgj$ghj#hhj",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #32",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "5паа33ап44а34п4п454арра55р55р5454ррарпр4",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "паап543ппп3араа3аа5ап43п3ппп3раа4ааа4а454рр54п3ппр",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid post #33",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "а",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "f",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "@#$@@##fhh#gh@ghg$#@@fhhgfg$@$$$fh#@@f$ffhf#gg#$fgg$$@@$h$fgg$f#ffh#@@###h@h#$@$$g#gffffffffffffffffffff$#$h#g@#gfgh@h##gh@$gg$#f#gh$h@g#h#h@$gff$@@fgg@gf@hg$ghg#hf$g#$fh$f#g#$hhgh@h@f@hf$h@@@fh#h@@hhhhg#$g@$gghhfgfg#@f@@g$@gf$$@@hg$gfgfhfh@$gh$hfh$#fhhg#$##fhfh@ff#@$#@@g$#@#g@@$h@gh#$#h$$g$gg#f#@f##ff@f@f$@##$$@$f$#$$#$@f@#fff@@#@@fhg$@@h#g#@h#h#@@f$fg#h@h#$h#ggh#f#$@gh#@fff##$@g#h#g#h@g$hgffh####h$@$hhhhh$@h#f#g@g$ff#@$$hhfg#@f#g#ggfh@h#$ff#gg#$@@ghh###fgh@g$ffhghf##$$hh#gh#@hf@g@#gh$#gghf@@@gfhggghh@hghhh$h@f@gfff#$##fgg##$$@@fg@#ghf@@@#ff$h#f$h##$hgh$$@g#f#hffh@#@$h$$ff#g#@#$$@$@#fg$f@$$gh$$hh#hfgh$g##fg#g$gh#hhg@fgf#$#f$@f$$gf$@hgg#f@$gh##gg$$fg###@#ghh##@@#ghgh@h$@@$@hf#$fh@fhg@#fgg#fffg#@$$@hghf##@#@#@@hh#h$g@$h$gh@@h@#ff@gh@@ffhfhfhg$h$#h###h@gf#g$gg@ffhhh#hgf#@$hh$$$@ffhg$$@@#ghf#$@#fhg@f@hfg$@h#f#@h#f#g@@h$@$@$$g##@f#$@##$h@$#h@g#gg$hhg#h@$hg@$#g@hf$h#ffg$#g#ffh@$#$g@$$$f$#$#@h$f$g$@f#@#f$$#h###hgg$gh$f##$$$##gggff@$@g@@$ffh#fhg$$ghggf@f@#ff@@#@@$gf#g$@g#$$g#fgfgf@g@$@hhfg#$gh$fhfhff$##f$f#gg$h#",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #34",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "а",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "f",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid post #35",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/png.png"
+						},
+						{
+							"key": "title",
+							"value": "а",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "f",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "hghg$$hf$gh$ff  $$gff#f$gf hgfg$$#$ f$$$#hgf#gf#fh$$gggfhff$ fg h#$h hf g#ghg$ h# h$gg #g$g gg hh#fff$gghfgffh$$g$$g  hfhf#g$f fg$ hhg$ggf#h$gh#ghg  $ f$$$ggg# f g$gghfg#$hhg  $h$##$h$$ ffgfhf$fhf$$$g gfff fg #gfh$#ghf$$g $f#gf#fg$h#g$hgg$ #h##g$$g$$ gfh g$g$$gf#g#$$$$$gh$g ghfggg$ g$h $$ggg$$$$gg$ggg#fgfg hh $h$$gh $#h$$$ gh$g$f#  gg$gg$$$gg$ $$gg$#$g# gg $ gg$$$h g h g$g fh  g$fh$gf gggg$ hgg$ggf$fh$ $f$h##hfg # f$f$#g#$ f gfhg$f f$ $$$g h$##g$gg$g$f$gg#gh$$g $ hh#g#$#$ghhffgghg$ggg$ fhh#h$$$$",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2022-02-06",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid post #36",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/polidlot16-irregular-verbs_18-03-2022.pdf"
+						},
+						{
+							"key": "title",
+							"value": "в",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "f",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "hghg$$hf$gh$ff  $$gff#f$gf hgfg$$#$ f$$$#hgf#gf#fh$$gggfhff$ fg h#$h hf g#ghg$ h# h$gg #g$g gg hh#fff$gghfgffh$$g$$g  hfhf#g$f fg$ hhg$ggf#h$gh#ghg  $ f$$$ggg# f g$gghfg#$hhg  $h$##$h$$ ffgfhf$fhf$$$g gfff fg #gfh$#ghf$$g $f#gf#fg$h#g$hgg$ #h##g$$g$$ gfh g$g$$gf#g#$$$$$gh$g ghfggg$ g$h $$ggg$$$$gg$ggg#fgfg hh $h$$gh $#h$$$ gh$g$f#  gg$gg$$$gg$ $$gg$#$g# gg $ gg$$$h g h g$g fh  g$fh$gf gggg$ hgg$ggf$fh$ $f$h##hfg # f$f$#g#$ f gfhg$f f$ $$$g h$##g$gg$g$f$gg#gh$$g $ hh#g#$#$ghhffgghg$ggg$ fhh#h$$$$",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-02-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid post #37",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/большое.png"
+						},
+						{
+							"key": "title",
+							"value": "ghhhfggfhghhfhhghhghhghgghggfhhgffhhgffh",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "рарроппррапаааооррпааааааарраооррропрппрорппоррпопрораоппаооорпараппоаоорппорараоопапррпроппаоаопроо",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "ghfhfghghhhhhhhhhhhhhhhhfffghhhgghghfhfghghhhhhfghhhhhhhfhghhghgfhfgggghghfhhhfgffghhhhfhhhhhghhhghhfhffhhhhfghhhhfhhhhhhhfhffhhhhhhhhhfgghhhfhhfhhhffhhhhhhhhghfhhhhhfhhhhfhfgghgghfgghhfghhhgghhhhgghhhgghhhhghhhhgfhhghhhfhhfhhfggghfgghhhhfffhhghfhghghfhhgfhghhhghhhhffhhhgfhhghhhffhhhfhghhfhhhhhhhghhhggghhhggghhhghhffghhhhfghghgghhhhhhghhhgffffhhhfhfhffhhhhhghhhfhhgfghhffghggghhhhhhhghggfhhgghghfhghfffhggffgghfhhhffhhhhhhghffhhfhfhhfhhffgghhghhhhffghhfhghhghhhhffhfhhhfhfghggfgfhghffhgfhgghfghhfhg",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create valid post #38",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{tokenuser}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_2/jpeg.jpg"
+						},
+						{
+							"key": "title",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "isDraft",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delayPublishTo",
+							"value": "2023-03-07",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/posts",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "tokenuser",
+			"value": ""
+		}
+	]
+}

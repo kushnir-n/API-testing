@@ -1,0 +1,2300 @@
+{
+	"info": {
+		"_postman_id": "a00b21ae-2132-4b76-8295-2a676dc12ecc",
+		"name": "Block 2_Update user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24701209"
+	},
+	"item": [
+		{
+			"name": "auth admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"token\", jsonData.token);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "GB202302841a610",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "9bddf9f046",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/login",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"user_id\", jsonData.item.id);\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"username1\", jsonData.item.username);\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"password1\", jsonData.item.password);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/8aa7831e22f8d5c74aecfe0c0e6953e3.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Маша",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Иванова",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "Masha798557878974",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89091631452",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "male",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "1990-10-01",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/dummies",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"dummies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"user_token\", jsonData.token);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "{{username1}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password1}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/login",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user on user_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"birthDate\", jsonData.birthDate);\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"firstName\", jsonData.firstName);\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"lastName\", jsonData.lastName);\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"usernamee\", jsonData.username);\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"phone\", jsonData.phone);\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"sex\", jsonData.sex);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://test-stand.gb.ru/api/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"api",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#6 update image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#7 update firstName on valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "QWERTY",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#8 update firstName on invalid (2)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "dd",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#9 update firstName on invalid (21)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "ddddddddddddddddddddd",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#10 update firstName on invalid (empty)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#11 update lastName on valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Getrova",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#12 update lastName on invalid (2)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/kartinki-amurskij-tigr-29.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "dd",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#13 update lastName on invalid (21)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/kartinki-amurskij-tigr-29.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "ddddddddddddddddddddd",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#14 update lastName on invalid (empty)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/kartinki-amurskij-tigr-29.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#15 update username on valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "Valyadd",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#16 update username on invalid (2)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "dd",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#17 update username on invalid (21)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "ddddddddddddddddddddd",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#18 update username on invalid (empty)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#19 update phone on valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "+79091631433",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#20 update phone on invalid (text)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "hhh",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#21 update phone on invalid (9 numbers)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#22 update phone on invalid (11 numbers and +)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "+123456789101",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#23 update sex on valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#24 update sex on invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "don't know",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#25 update birthDate on valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "1994-05-04",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#26 update birthDate on invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "2016-10-01",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#27 update birthDate on invalid Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "2124-10-01",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#28 update firstName on valid, image delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "firstName",
+							"value": "Raya",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "2124-10-01",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "#29 update firstName on valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/GeekBrains_обучение/II четверть/Тестирование API/Sem_3/krasivye-cherno-belye-kartinki-na-rabochij-stol-31.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "йцукен",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{usernamee}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "{{sex}}",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "{{birthDate}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "username1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "password1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_id",
+			"value": ""
+		},
+		{
+			"key": "birthDate",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "firstName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "lastName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "usernamee",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "phone",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "sex",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
